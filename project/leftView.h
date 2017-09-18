@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface leftView : UIView
-
+- (instancetype)initWithFrame:(CGRect)frame;
 @end

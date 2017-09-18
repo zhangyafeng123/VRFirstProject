@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol firstViewDelegate <NSObject>
+
+- (void)clickbtnaction;
+
+@end
+
 @interface firstView : UIView
+@property (nonatomic, assign)id<firstViewDelegate>delegate;
+
+- (instancetype)initWithFrame:(CGRect)frame backimageStr:(NSString *)imagestr;
 
 @end

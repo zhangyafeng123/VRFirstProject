@@ -1,20 +1,85 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="firstDetailViewController">
             <connections>
+                <outlet property="onebtn" destination="VTo-e9-Dsw" id="RIt-sT-xUA"/>
+                <outlet property="threebtn" destination="qmp-4n-pOR" id="AZi-4X-4QW"/>
+                <outlet property="twobtn" destination="U0a-YW-97D" id="OMX-gx-p3q"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWw-03-Hh0">
+                    <rect key="frame" x="658" y="959" width="80" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="7us-Tw-sMT"/>
+                        <constraint firstAttribute="height" constant="40" id="HMv-D2-NtX"/>
+                    </constraints>
+                    <state key="normal" image="返回"/>
+                    <connections>
+                        <action selector="backbtn:" destination="-1" eventType="touchUpInside" id="0cO-fT-sbK"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmp-4n-pOR">
+                    <rect key="frame" x="608" y="959" width="40" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.4965252913" blue="0.53538491889999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="CTp-3S-tOr"/>
+                        <constraint firstAttribute="height" constant="40" id="xQy-lm-Nku"/>
+                    </constraints>
+                    <connections>
+                        <action selector="threebtn:" destination="-1" eventType="touchUpInside" id="lSX-Kh-M3m"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0a-YW-97D">
+                    <rect key="frame" x="558" y="959" width="40" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.4965252913" blue="0.53538491889999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="ioI-8Z-ny5"/>
+                        <constraint firstAttribute="width" constant="40" id="vpn-Ft-KDz"/>
+                    </constraints>
+                    <connections>
+                        <action selector="secondBtn:" destination="-1" eventType="touchUpInside" id="Uuv-Zo-pk8"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTo-e9-Dsw">
+                    <rect key="frame" x="508" y="959" width="40" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.4965252913" blue="0.53538491889999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Txf-SM-pw3"/>
+                        <constraint firstAttribute="width" constant="40" id="xIU-hU-zAC"/>
+                    </constraints>
+                    <connections>
+                        <action selector="firstbtn:" destination="-1" eventType="touchUpInside" id="1dW-Lh-4CS"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="qmp-4n-pOR" firstAttribute="centerY" secondItem="U0a-YW-97D" secondAttribute="centerY" id="3NV-xu-ok3"/>
+                <constraint firstAttribute="trailing" secondItem="IWw-03-Hh0" secondAttribute="trailing" constant="30" id="ASd-Gm-NTK"/>
+                <constraint firstItem="U0a-YW-97D" firstAttribute="leading" secondItem="VTo-e9-Dsw" secondAttribute="trailing" constant="10" id="EDX-pj-fbr"/>
+                <constraint firstItem="IWw-03-Hh0" firstAttribute="centerY" secondItem="qmp-4n-pOR" secondAttribute="centerY" id="Whm-Ta-kk0"/>
+                <constraint firstItem="IWw-03-Hh0" firstAttribute="leading" secondItem="qmp-4n-pOR" secondAttribute="trailing" constant="10" id="Wpj-ay-Jl5"/>
+                <constraint firstItem="U0a-YW-97D" firstAttribute="centerY" secondItem="VTo-e9-Dsw" secondAttribute="centerY" id="XHh-rZ-gJY"/>
+                <constraint firstItem="qmp-4n-pOR" firstAttribute="leading" secondItem="U0a-YW-97D" secondAttribute="trailing" constant="10" id="XiL-66-r6V"/>
+                <constraint firstAttribute="bottom" secondItem="IWw-03-Hh0" secondAttribute="bottom" constant="25" id="ivy-b9-P0j"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="返回" width="219" height="118"/>
+    </resources>
 </document>

@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ImgBtnDelegate <NSObject>
+
+- (void)clickbtnaction:(NSInteger)index;
+
+@end
+
 @interface ImgBtn : UIView
+@property (nonatomic, assign)id<ImgBtnDelegate>delegate;
+- (instancetype)initWithFrame:(CGRect)frame imagestr:(NSString *)imagestr tag:(NSInteger)tag;
 
 @end

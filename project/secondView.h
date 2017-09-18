@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol secondViewDeleagate <NSObject>
+
+- (void)clicksecondBtnaction;
+
+@end
+
+
 @interface secondView : UIView
+@property (nonatomic, assign)id<secondViewDeleagate>delegate;
+
+- (instancetype)initWithFrame:(CGRect)frame imagestr:(NSString *)imgstr imageArr:(NSArray *)arr;
 
 @end

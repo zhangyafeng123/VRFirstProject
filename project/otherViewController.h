@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface otherViewController : UIViewController
+#import "JAPanoView.h"
+@interface otherViewController : UIViewController<JAPanoViewDelegate>
 
 @end

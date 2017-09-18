@@ -10,4 +10,9 @@
 
 @interface firstDetailViewController : UIViewController
 
+@property (nonatomic, strong)NSMutableArray *firstArray;
+@property (nonatomic, strong)NSMutableArray *secondArray;
+@property (nonatomic, strong)NSMutableArray *thridArray;
+@property (nonatomic, assign)NSInteger num;
+
 @end

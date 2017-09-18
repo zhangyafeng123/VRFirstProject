@@ -19,6 +19,11 @@
 - (void)spinImageViewEndLoadData:(MMSpinImageView*)view;
 - (void)spinImageViewFailedLoadData:(MMSpinImageView*)view;
 
+//当开始拖动的时候
+- (void)spinImageViewBeginpan;
+//当进行拖动的时候
+- (void)spinImageViewchangepan:(CGPoint)point inde:(NSInteger)index;
+
 @end
 
 @protocol MMSpinImageViewDatasource <NSObject>
@@ -44,6 +49,6 @@
 @property (nonatomic, assign)   double panDistance;
 
 - (void)reloadData;
-- (void)loadDataFromZip:(NSString*)path;
+
 
 @end

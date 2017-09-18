@@ -101,70 +101,6 @@ UIGestureRecognizerDelegate
     
 }
 
-- (void)loadDataFromZip:(NSString *)path
-{
-    if ( !path )
-    {
-        return;
-    }
-    
-    __weak __typeof(&*self)weakSelf = self;
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        ZZArchive* oldArchive = [ZZArchive archiveWithContentsOfURL:[NSURL fileURLWithPath:path]];
-        
-        if ( oldArchive.entries.count == 0 )
-        {
-            if ( [weakSelf.delegate respondsToSelector:@selector(spinImageViewFailedLoadData:)] )
-            {
-                [weakSelf.delegate spinImageViewFailedLoadData:weakSelf];
-            }
-            
-            return;
-        }
-        
-        if ( [weakSelf.delegate respondsToSelector:@selector(spinImageViewBeginLoadData:)] )
-        {
-            [weakSelf.delegate spinImageViewBeginLoadData:weakSelf];
-        }
-        
-        NSMutableArray *array = [NSMutableArray array];
-        
-        for ( ZZArchiveEntry *entry in oldArchive.entries )
-        {
-            //avoid the damn __MACOS problem on mac
-            if ( [entry.fileName rangeOfString:@"/"].location != NSNotFound )
-            {
-                continue;
-            }
-            
-            NSData *data = [entry newData];
-            
-            UIImage * image = [UIImage imageWithData:data scale:[UIScreen mainScreen].scale];
-            
-            [array addObject:image];
-        }
-        
-        dispatch_async (dispatch_get_main_queue (), ^{
-            
-            if ( !weakSelf )
-            {
-                return;
-            }
-            
-            weakSelf.dataSource = weakSelf;
-            weakSelf.imagesArray = array;
-            
-            if ( [weakSelf.delegate respondsToSelector:@selector(spinImageViewEndLoadData:)] )
-            {
-                [weakSelf.delegate spinImageViewEndLoadData:weakSelf];
-            }
-        });
-        
-    });
-    
-}
 
 #pragma mark dataSource
 
@@ -199,6 +135,11 @@ UIGestureRecognizerDelegate
     switch (gesture.state) {
         case UIGestureRecognizerStateBegan:
         {
+            //当开始拖动的时候.
+            if ([self.delegate respondsToSelector:@selector(spinImageViewBeginpan)]) {
+                [self.delegate spinImageViewBeginpan];
+            }
+            
             self.touchIndex = self.currentIndex;
             self.touchPoint = [gesture locationInView:self];
             break;
@@ -215,7 +156,9 @@ UIGestureRecognizerDelegate
             {   
                 self.currentIndex = (index + self.imageCount*1000) % self.imageCount;
             }
-            
+            if ([self.delegate respondsToSelector:@selector(spinImageViewchangepan:inde:)]) {
+                [self.delegate spinImageViewchangepan:pt inde:self.currentIndex];
+            }
             break;
         }
             
